@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO</title>
+</head>
+<body>
+    <button id="showDialog"> Show the form</button>
+    <button id="testButton"> Test the fxn</button>
+    <dialog class="makeToDo">
+        <form action="get">
+
+            <label for="title">
+                <p>Title</p>
+            </label>
+            <input type="text" name="title" id="title">
+
+            <label for="description">
+                <p>Description</p>
+            </label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <label for="dueDate">
+                <p>Due date</p>
+            </label>
+            <input type="date" name="dueDate" id="dueDate">
+
+            <label for="priority">
+                <p>Priority</p>
+             <label for="lowPrio"> Low</label>
+             <input type="radio" name="priority" id="lowPrio" value="low">
+             <label for="medPrio"> Med</label>
+             <input type="radio" name="priority" id="medPrio" value="med">
+             <label for="hiPrio">High</label>   
+             <input type="radio" name="priority" id="hiPrio" value="hi">
+             </label>
+            <div>
+                <button id="cancel"> Cancel</button>
+                <button id="submit">Submit</button>
+            </div>
+        </form>
+    </dialog>
+    
+</body>
+<script src="bundle.js"></script>
+</html>
