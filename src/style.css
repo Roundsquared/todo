@@ -1,3 +1,12 @@
 form p{
     margin:0;
 }
+body{
+    height:100vh;
+}
+#border{
+    width:75%;
+    height:75%;
+    background-color:orchid;
+    border-radius:7px;
+}

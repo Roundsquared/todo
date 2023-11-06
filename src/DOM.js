@@ -36,11 +36,30 @@ export function formDOM(){
         
     }
     export function displayOnDom(){
+        const area=document.getElementById('border')
+        area.textContent=''
         for(let item of toDoList){
             let a=item.title;
             let b=item.description;
             let c=item.dueDate;
             let d= item.priority;
-            console.log(a+' '+b+' '+c+' '+d)
+            
+            let card=document.createElement('div')
+            let title=document.createElement('h1')
+            let description= document.createElement('p')
+            let due= document.createElement('p')
+            let priority= document.createElement('p')
+            
+            title.textContent=a
+            description.textContent=b
+            due.textContent=c
+            priority.textContent=d
+
+            card.appendChild(title)
+            card.appendChild(description)
+            card.appendChild(due)
+            card.appendChild(priority)
+
+            area.appendChild(card)
         }
     }
