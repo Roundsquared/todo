@@ -2,7 +2,6 @@ import { formDOM } from "./DOM";
 import { displayOnDom } from "./DOM";
 
 import './style.css';
-export const toDoList=[]
 
 export class ToDo {
 
@@ -20,3 +19,14 @@ formDOM();
 document.getElementById('testButton').addEventListener('click',()=>{
     displayOnDom()
 })
+document.getElementById('testButton2').addEventListener('click',()=>{
+    console.log(defaultProject)
+})
+class Project{
+    constructor(name){
+        this.name=name;
+        this.data=[];
+    }
+
+}
+export let defaultProject= new Project('default')

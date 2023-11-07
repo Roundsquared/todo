@@ -1,5 +1,7 @@
 import { ToDo } from ".";
 import { toDoList } from ".";
+import { defaultProject } from ".";
+
 export function formDOM(){
     const cancelButton = document.querySelector('#cancel');
     const submitButton = document.querySelector('#submit');
@@ -9,7 +11,10 @@ export function formDOM(){
     const desc=document.getElementById('description');
     const dueDate=document.getElementById('dueDate');
     const prio=document.getElementsByName('priority')
+    const projButton=document.getElementById('projectButton')
+
     
+
         formButton.addEventListener('click',()=>{
             dialog.showModal();
             })
@@ -29,22 +34,25 @@ export function formDOM(){
                     p= prio[i].value;
             }
             let newItem= new ToDo(t,d,dd,p);
-            toDoList.push(newItem)
+            defaultProject.data.push(newItem)
             dialog.close();
-        
+            //call reset on the form element not the dialog dummy
             })
-        
+        projButton.addEventListener('click',(e)=>{
+            e.preventDefault();
+        })
     }
-    export function displayOnDom(){
+export function displayOnDom(){
         const area=document.getElementById('border')
         area.textContent=''
-        for(let item of toDoList){
+        for(let item of defaultProject.data){
             let a=item.title;
             let b=item.description;
             let c=item.dueDate;
             let d= item.priority;
             
             let card=document.createElement('div')
+            card.setAttribute('class','card')
             let title=document.createElement('h1')
             let description= document.createElement('p')
             let due= document.createElement('p')
@@ -62,4 +70,5 @@ export function formDOM(){
 
             area.appendChild(card)
         }
+        
     }
