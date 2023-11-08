@@ -9,21 +9,21 @@
     <div class="gridWrapper">
         <header>
             <button id="showDialog"> Show the form</button>
-            <button id="testButton"> Test the fxn</button>
-            <button id="testButton2"> Def Proj Data</button>
+            <button id="testButton"> Print form items</button>
         </header>
         <div class="projects">
             <div class="newproject">
                 <h1> Add a new project!</h1>
-                <form action="post">
+                <form action="post" id="projectForm">
                         <label for="newProj">
                             Project Name
                         </label>
                         <input type="text" name="newProj" id="newProj"><span><button id="projectButton"> Submit</button></span>
                 </form>
-               
             </div>
-            
+            <div class="projectHolder">
+                
+            </div>
         </div>
         <dialog class="makeToDo">
             <form action="post">

@@ -1,7 +1,10 @@
 import { formDOM } from "./DOM";
 import { displayOnDom } from "./DOM";
-
+import { projectUpdate } from "./DOM";
 import './style.css';
+
+const projButton=document.getElementById('projectButton')
+const projForm= document.getElementById('projectForm')
 
 export class ToDo {
 
@@ -15,13 +18,24 @@ export class ToDo {
 
 formDOM();
 
+export let projectList=[]
 
 document.getElementById('testButton').addEventListener('click',()=>{
     displayOnDom()
 })
-document.getElementById('testButton2').addEventListener('click',()=>{
-    console.log(defaultProject)
+
+projButton.addEventListener('click',(e)=>{
+    
+    e.preventDefault();
+    
+    let newProject=document.getElementById('newProj').value
+    let createProject= new Project(newProject)
+    projectList.push(createProject);
+    console.log(projectList)
+    projForm.reset()
+    projectUpdate();
 })
+
 class Project{
     constructor(name){
         this.name=name;
@@ -29,4 +43,6 @@ class Project{
     }
 
 }
-export let defaultProject= new Project('default')
+export let defaultProject= new Project('default') 
+projectList.push(defaultProject)
+
