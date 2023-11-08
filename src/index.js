@@ -1,6 +1,7 @@
 import { formDOM } from "./DOM";
 import { displayOnDom } from "./DOM";
 import { projectUpdate } from "./DOM";
+import { currentSelection } from "./DOM";
 import './style.css';
 
 const projButton=document.getElementById('projectButton')
@@ -20,10 +21,6 @@ formDOM();
 
 export let projectList=[]
 
-document.getElementById('testButton').addEventListener('click',()=>{
-    displayOnDom()
-})
-
 projButton.addEventListener('click',(e)=>{
     
     e.preventDefault();
@@ -31,7 +28,6 @@ projButton.addEventListener('click',(e)=>{
     let newProject=document.getElementById('newProj').value
     let createProject= new Project(newProject)
     projectList.push(createProject);
-    console.log(projectList)
     projForm.reset()
     projectUpdate();
 })
@@ -45,4 +41,4 @@ class Project{
 }
 export let defaultProject= new Project('default') 
 projectList.push(defaultProject)
-
+currentSelection=projectList[0]

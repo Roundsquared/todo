@@ -32,41 +32,24 @@ export function formDOM(){
                     p= prio[i].value;
             }
             let newItem= new ToDo(t,d,dd,p);
-            defaultProject.data.push(newItem)
-            currentSelection.data.push(newItem)
+            if(currentSelection===projectList[0]){
+                currentSelection.data.push(newItem)
+            }
+            else{
+                currentSelection.data.push(newItem)
+                defaultProject.data.push(newItem)
+            
+            }
+            displayOnDom()
             dialog.close();
             //call reset on the form element not the dialog dummy
             })
         
     }
 export function displayOnDom(){
+        console.log(currentSelection)
         const area=document.getElementById('border')
         area.textContent=''
-        for(let item of defaultProject.data){
-            let a=item.title;
-            let b=item.description;
-            let c=item.dueDate;
-            let d= item.priority;
-            
-            let card=document.createElement('div')
-            card.setAttribute('class','card')
-            let title=document.createElement('h1')
-            let description= document.createElement('p')
-            let due= document.createElement('p')
-            let priority= document.createElement('p')
-            
-            title.textContent=a
-            description.textContent=b
-            due.textContent=c
-            priority.textContent=d
-
-            card.appendChild(title)
-            card.appendChild(description)
-            card.appendChild(due)
-            card.appendChild(priority)
-
-            area.appendChild(card)
-        }
         for(let item of currentSelection.data){
             let a=item.title;
             let b=item.description;
@@ -113,6 +96,7 @@ export let projectUpdate =function(){
             selectProject.textContent='Pick Me!'
             selectProject.addEventListener('click',()=>{
                 currentSelection=projectList[index]
+                displayOnDom()
             })
             projectDiv.appendChild(projectTitle)
             projectDiv.appendChild(deleteProject)
