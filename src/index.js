@@ -41,4 +41,5 @@ class Project{
 }
 export let defaultProject= new Project('default') 
 projectList.push(defaultProject)
+defaultProject.default=true;
 currentSelection=projectList[0]
